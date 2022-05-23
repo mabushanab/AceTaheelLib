@@ -1,0 +1,494 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GetCentersDetails",
+    "version": "1.0.0",
+    "description": "Get Centers Details"
+  },
+  "paths": {
+    "/getcentesrdetails": {
+      "post": {
+        "operationId": "GetCentersDetails",
+        "responses": {
+          "200": {
+            "description": "The operation was successful.",
+            "schema": {
+              "$ref": "#/definitions/GetCentersDetailsRs_MessageType"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "description": "Get Centers Details",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/GetCentersDetailsRq_MessageType"
+            },
+            "description": "GetCentersDetailsRq",
+            "required": true
+          }
+        ]
+      }
+    }
+  },
+  "basePath": "/centerestablishment",
+  "definitions": {
+    "GetCentersDetailsRq_MessageType": {
+      "type": "object",
+      "properties": {
+        "GetCentersDetailsRq": {
+          "$ref": "#/definitions/GetCentersDetailsRq_Type"
+        }
+      }
+    },
+    "GetCentersDetailsRs_MessageType": {
+      "type": "object",
+      "properties": {
+        "GetCentersDetailsRs": {
+          "$ref": "#/definitions/GetCentersDetailsRs_Type"
+        }
+      }
+    },
+    "GetCentersDetailsRq_Type": {
+      "type": "object",
+      "properties": {
+        "Header": {
+          "$ref": "#/definitions/ESBXMLRequestHeader_Type"
+        },
+        "Body": {
+          "$ref": "#/definitions/GetCentersDetailsRq_BodyType"
+        }
+      }
+    },
+    "GetCentersDetailsRq_BodyType": {
+      "type": "object",
+      "properties": {
+	  "CenterNameArabic": {
+          "type": "string"
+          
+        },
+       
+        "CenterNameEnglish": {
+          "type": "string"
+         
+        },
+      
+        "CenterId": {
+          "type": "integer"
+        },
+		 "LicenseTypeID": {
+          "type": "integer"
+        },
+		 "LicenseNo": {
+          "type": "string"
+        }
+		
+		
+      
+       
+      }
+    },
+    "GetCentersDetailsRs_Type": {
+      "type": "object",
+      "properties": {
+        "Header": {
+          "$ref": "#/definitions/ESBXMLResponseHeader_Type"
+        },
+        "Body": {
+          "$ref": "#/definitions/GetCentersDetailsRs_BodyType"
+        }
+      }
+    },
+   
+   
+   
+    "GetCentersDetailsRs_BodyType": {
+      "type": "object",
+      "properties": {
+        "CentersList": {
+         "$ref": "#/definitions/CentersList_Type"
+        },
+        
+        "CenterDetails": {
+          "$ref": "#/definitions/CenterDetails_Type"
+        }
+      }
+    },
+	 "CenterDetails_Type": {
+      "type": "object",
+      "properties": {
+        "LicenseTypeID": {
+          "type": "integer"
+        },
+		 "LicenseNo": {
+          "type": "integer"
+        },
+		 "LicenseIssueDateH": {
+          "type": "string"
+        },
+		 "LicenseExpDateH": {
+          "type": "string"
+        },
+        "CenterId": {
+          "type": "integer"
+        },
+		"CharacterType": {
+          "type": "integer"
+        },
+        "CenterInfo": {
+           "$ref": "#/definitions/CenterInfo_Type"
+        },
+		"BneficiaryCategory": {
+          "type": "integer"
+        },
+        "CenterOwnerInfo": {
+            "$ref": "#/definitions/CenterOwnerInfo_Type"
+          },
+		"CenterManagerInfo": {
+          "$ref": "#/definitions/CenterManagerInfo_Type"
+        },
+        "CenterLocation": {
+           "$ref": "#/definitions/CenterLocation_Type"
+        },
+		"CRNumber": {
+          "type": "integer"
+        },
+		 "EntityName": {
+          "type": "string"
+        },
+		 "CommissionerMobNo": {
+          "type": "integer"
+        },
+		 "Is_Active": {
+          "type": "integer"
+        },
+		 "Is_Deleted": {
+          "type": "integer"
+        },
+		 "RequestStatusID": {
+          "type": "integer"
+        },
+     
+		 "ReadinessAsseementResult": {
+          "type": "integer"
+        }
+		
+      }
+    },
+	 "CenterInfo_Type": {
+      "type": "object",
+      "properties": {
+        "CenterName": {
+          "type": "string"
+        },
+        "CenterType": {
+          "type": "integer"
+        },
+		"PotentialCapacity": {
+          "type": "integer"
+        },
+        "CenterAgeGroup": {
+         "type": "integer"
+        },
+		"CenterWorkPeriod": {
+          "type": "integer"
+        },
+        "CenterGenderGroup": {
+         "type": "integer"
+        }
+		
+      }
+    },
+	 "CenterOwnerInfo_Type": {
+	      "type": "object",
+	      "properties": {
+	        "IdNo": {
+	          "type": "integer"
+	        },
+	        "FullName": {
+	           "$ref": "#/definitions/FullName_Type"
+	        },
+	        "BirthDateH": {
+		          "type": "string"
+		        },
+		    "MobileNO": {
+			      "type": "string"
+			}	        
+	        
+	      }
+	    },
+	 "CenterManagerInfo_Type": {
+      "type": "object",
+      "properties": {
+        "IdNo": {
+          "type": "integer"
+        },
+        "FullName": {
+           "$ref": "#/definitions/FullName_Type"
+        }
+		
+      }
+    },
+    "FullName_Type": {
+      "type": "object",
+      "properties": {
+        "FirstName": {
+          "type": "string"
+        },
+        "SecondName": {
+            "type": "string"
+        },
+		"ThirdName": {
+            "type": "string"
+        },
+        "FamilyName": {
+           "type": "string"
+        }
+		
+		
+      }
+    },
+	 "CenterLocation_Type": {
+      "type": "object",
+      "properties": {
+        "Longitude": {
+          "type": "number",
+          "format":"float"
+        },
+        "Latitude": {
+           "type": "number",
+           "format":"float"
+        },
+		"City": {
+          "type": "string"
+        },
+        "StreetNo": {
+          "type": "string"
+        },
+		"BuildingNo": {
+          "type": "integer"
+		 
+        },
+        "PostalCode": {
+         "type": "integer"
+		  
+        },
+		"AdditionalNumber": {
+          "type": "integer"
+		  
+        },
+        "Neighborhood": {
+          "type": "string"
+		 
+        }
+		
+      }
+    },
+    "CentersList_Type": {
+      "type": "array",
+      
+         
+		   "items":{
+		   "$ref": "#/definitions/CentersListItem_Type"
+		 
+      }
+    },
+	 "CentersListItem_Type": {
+      "type": "object",
+      "properties": {
+        "CenterId": {
+          "type": "integer"
+        },
+        "CenterNameArabic": {
+          "type": "string"
+        },
+		"CenterNameEnglish": {
+          "type": "string"
+        },
+        "CenterTypeArabic": {
+          "type": "string"
+        },
+		"CenterTypeEnglish": {
+          "type": "string"
+        },
+        "LicenseNumber": {
+          "type": "integer"
+        },
+		"LicenseStatus": {
+          "type": "string"
+        },
+        "LicenseTypeID": {
+          "type": "integer"
+        },
+		"LicenseTypeNameArabic": {
+          "type": "string"
+        },
+        "LicenseTypeNameEnglish": {
+          "type": "string"
+        }
+		
+      }
+    },
+	
+    "ESBXMLRequestHeader_Type": {
+      "type": "object",
+      "properties": {
+        "TransactionId": {
+          "type": "string"
+        },
+        "ChannelId": {
+          "type": "string"
+        },
+        "SessionId": {
+          "type": "string"
+        },
+        "RequestTime": {
+          "type": "string"
+        },
+        "MWRequestTime": {
+          "type": "string"
+        },
+        "ServiceCode": {
+          "type": "string"
+        },
+        "DebugFlag": {
+          "type": "integer"
+        },
+        "UserInfo": {
+          "$ref": "#/definitions/UserInfo_Type"
+        },
+        "UDF": {
+          "$ref": "#/definitions/UDF_Type"
+        }
+      },
+      "required": [
+        "ServiceCode",
+        "ChannelId",
+        "TransactionId",
+        "RequestTime"
+      ]
+    },
+    "ESBXMLResponseHeader_Type": {
+      "type": "object",
+      "properties": {
+        "TransactionId": {
+          "type": "string"
+        },
+        "ChannelId": {
+          "type": "string"
+        },
+        "SessionId": {
+          "type": "string"
+        },
+        "RequestTime": {
+          "type": "string"
+        },
+        "MWRequestTime": {
+          "type": "string"
+        },
+        "MWResponseime": {
+          "type": "string"
+        },
+        "ServiceCode": {
+          "type": "string"
+        },
+        "DebugFlag": {
+          "type": "integer"
+        },
+        "UserInfo": {
+          "$ref": "#/definitions/UserInfo_Type"
+        },
+        "UDF": {
+          "$ref": "#/definitions/UDF_Type"
+        },
+        "ResponseStatus": {
+          "$ref": "#/definitions/MWResponseStatus_Type"
+        },
+        "BackendError": {
+          "$ref": "#/definitions/BackendError_Type"
+        }
+      },
+      "required": [
+        "TransactionId",
+        "ChannelId",
+        "RequestTime",
+        "ServiceCode"
+      ]
+    },
+    "UDF_Type": {
+      "type": "object",
+      "properties": {
+        "KeyValueArr": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValueArr_Type"
+          }
+        }
+      }
+    },
+    "KeyValueArr_Type": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+   
+    "UserInfo_Type": {
+      "type": "object",
+      "properties": {
+        "UserId": {
+          "type": "string"
+        },
+        "IDNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "MWResponseStatus_Type": {
+      "type": "object",
+      "properties": {
+        "Status": {
+          "type": "string"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "ArabicMsg": {
+          "type": "string"
+        },
+        "EnglishMsg": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Code",
+        "Status",
+        "ArabicMsg",
+        "EnglishMsg"
+      ]
+    },
+    "BackendError_Type": {
+      "type": "object",
+      "properties": {
+        "ErrorCode": {
+          "type": "string"
+        },
+        "ErrorDescription": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

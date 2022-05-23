@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Taheel/CenterEstablishment/CreateFinalCenterLicense/v1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/CenterEstablishment/CreateFinalCenterLicense/v1.0" xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+    <xsd:import namespace="http://Takamol/Common/Types"  schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+ 
+    <xsd:element name="CreateFinalCenterLicenseRq"  type="bons0:CreateFinalCenterLicenseRq_Type"/>
+    <xsd:element name="CreateFinalCenterLicenseRs" type="bons0:CreateFinalCenterLicenseRs_Type"/>
+     
+    <complexType name="CreateFinalCenterLicenseRq_Type">
+        <sequence>
+            <xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/>
+            <xsd:element name="Body" type="bons0:CreateFinalCenterLicenseRq_BodyType"/>
+        </sequence>
+    </complexType>
+     
+    <complexType name="CreateFinalCenterLicenseRs_Type"> 
+        <sequence>
+            <xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/> 
+            <xsd:element minOccurs="0" name="Body" type="bons0:CreateFinalCenterLicenseRs_BodyType"/>
+        </sequence>
+    </complexType>
+
+ 
+
+    <complexType name="CreateFinalCenterLicenseRq_BodyType">
+    <all>
+	     <element minOccurs="1" name="StaffInfoList" type="bons0:StaffInfoList_Type"/>
+         <element minOccurs="1" name="FinalLicensingRequirements" type="bons0:FinalLicensingRequirements_Type"/>
+         <element minOccurs="0" name="HealthCareServices" type="bons0:HealthCareServices_Type"/>  
+         <element minOccurs="1" name="LicenseId" type="string"/>
+         <element minOccurs="1" name="CRNumber" type="integer"/>
+         <element minOccurs="1" name="IsHealthCareService" >
+          <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "0"/>
+				 <enumeration value = "1"/>
+            </restriction>
+        </simpleType> 
+        </element>
+         
+    </all>
+    </complexType>  
+
+   <complexType name="StaffInfoList_Type">
+        <sequence>
+      <element maxOccurs="unbounded" minOccurs="1" name="StaffInfoListItem" type="bons0:StaffInfoListItem_Type"/> 
+        </sequence>
+    </complexType>
+    
+
+
+   <complexType name="StaffInfoListItem_Type">
+        <all>
+      <element minOccurs="1" name="Name" type="string"/>
+      <element minOccurs="1" name="BirthDateH" type="string"/>
+      <element minOccurs="1" name="Gender" type="string"/>
+      <element minOccurs="1" name="Nationality" type="string"/>
+      <element minOccurs="1" name="SponsorName" type="string"/>
+      <element minOccurs="1" name="IdNo" >
+          <simpleType>
+                       <xsd:restriction base="xsd:string">
+                          <xsd:pattern value="[0-9]{10}"/>
+                       </xsd:restriction>
+                      </simpleType>
+         </element>
+      <element minOccurs="1" name="Attachments" type="bons0:Attachments_Type"/>      
+      <element minOccurs="1" name="StaffType" type="integer"/>
+        </all>
+    </complexType>
+	
+	<complexType name="Attachments_Type">
+           <sequence>
+      <element maxOccurs="unbounded" minOccurs="1" name="Attachment" type="bons0:File_Type"/> 
+        </sequence>
+    </complexType>
+	
+	 <complexType name="FinalLicensingRequirements_Type">
+        <all>
+      <element minOccurs="1" name="OperationalPlans" type="bons0:File_Type5"/>
+      <element minOccurs="1" name="ExecutivePlans" type="bons0:File_Type6"/>
+      <element minOccurs="1" name="EngineeringOfficeReport" type="bons0:File_Type7"/>
+      <element minOccurs="1" name="BuildingArea" type="decimal"/>
+	  <element minOccurs="1" name="BasementArea" type="decimal"/>
+      <element minOccurs="1" name="ActualBeneficiariesNumber" type="integer"/>
+      <element minOccurs="1" name="FurnitureAppliancesPhotos" type="bons0:File_Type8"/>
+      <element minOccurs="1" name="SecurityScanResult" type="bons0:File_Type9"/>
+      <element minOccurs="1" name="CarryingCapacity" type="integer"/>
+      <element minOccurs="1" name="FinancialGuarantee" type="integer"/>
+      <element minOccurs="1" name="FinancialGuaranteeDoc" type="bons0:File_Type10"/>
+        </all>
+    </complexType>
+	
+	
+	<complexType name="HealthCareServices_Type">
+        <all>
+       <element minOccurs="1" name="ServiceType" type="integer"/>  
+	  <element minOccurs="1" name="Attachments" type="bons0:Attachments_Type"/> 
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID" type="integer"/>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+   
+	<complexType name="File_Type3">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "3"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type4">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "4"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type5">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "5"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type6">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "6"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type7">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "7"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type8">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "8"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type9">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "9"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type10">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "10"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type11">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "11"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type12">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "12"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type13">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "13"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type1">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "1"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type2">
+        <all>
+      <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocTypeID">
+      <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "2"/>
+            </restriction>
+        </simpleType> 
+        </element>
+      <element minOccurs="1" name="Url" type="string"/>       
+        </all>
+    </complexType>
+    
+    
+    	
+    
+    <complexType name="CreateFinalCenterLicenseRs_BodyType">
+		<all>
+		 <element minOccurs="1" name="LicenseId" type="integer"/>
+		 <element minOccurs="1" name="RequestId" type="integer"/>
+		</all>
+    </complexType> 
+    
+    
+</xsd:schema>

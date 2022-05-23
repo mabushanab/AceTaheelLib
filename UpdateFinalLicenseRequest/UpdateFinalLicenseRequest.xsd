@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Taheel/CenterEstablishment/UpdateFinalLicenseRequest/v1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/CenterEstablishment/UpdateFinalLicenseRequest/v1.0" xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+    <xsd:import namespace="http://Takamol/Common/Types"  schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+ 
+    <xsd:element name="UpdateFinalLicenseRequestRq"  type="bons0:UpdateFinalLicenseRequestRq_Type"/>
+    <xsd:element name="UpdateFinalLicenseRequestRs" type="bons0:UpdateFinalLicenseRequestRs_Type"/>
+     
+    <complexType name="UpdateFinalLicenseRequestRq_Type">
+        <sequence>
+            <xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/>
+            <xsd:element name="Body" type="bons0:UpdateFinalLicenseRequestRq_BodyType"/>
+        </sequence>
+    </complexType>
+    
+    <complexType name="UpdateFinalLicenseRequestRs_Type"> 
+        <sequence>
+            <xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/>
+            <xsd:element minOccurs="0" name="Body" type="bons0:UpdateFinalLicenseRequestRs_BodyType"/>
+        </sequence>
+    </complexType>
+
+ 
+
+    <complexType name="UpdateFinalLicenseRequestRq_BodyType">
+    <all>
+	     <element minOccurs="1" name="RequestValue" type="bons0:RequestValue_Type"/>
+         <element minOccurs="1" name="RequestId" type="integer"/>
+	     <element minOccurs="1" name="IsHealthCareService" type="boolean"/>
+         <element minOccurs="1" name="IsCanceled"> 
+		   <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "1"/>
+				 <enumeration value = "0"/>
+            </restriction>
+        </simpleType> 
+        </element>
+    </all>
+    </complexType>  
+
+
+    <complexType name="RequestValue_Type">
+    <all>
+	    <element minOccurs="1" name="StaffInfoList" type="bons0:StaffInfoList_Type"/>
+         <element minOccurs="1" name="FinalLicensingRequirements" type="bons0:FinalLicensingRequirements_Type"/>
+         <element minOccurs="1" name="HealthCareServices" type="bons0:HealthCareServices_Type"/>
+         
+    </all>
+    </complexType>  
+		 
+   <complexType name="StaffInfoList_Type">
+        <sequence>
+      <element maxOccurs="unbounded" minOccurs="1" name="StaffInfoListItem" type="bons0:StaffInfoListItem_Type"/> 
+        </sequence>
+    </complexType>
+     
+
+
+   <complexType name="StaffInfoListItem_Type">
+        <all>
+      <element minOccurs="1" name="Name" type="string"/>
+      <element minOccurs="1" name="IdNo">
+          <simpleType>
+                       <xsd:restriction base="xsd:string">
+                          <xsd:pattern value="[0-9]{10}"/>
+                       </xsd:restriction>
+                      </simpleType>
+         </element>
+      <element minOccurs="1" name="BirthDateH" type="string"/>
+	  <element minOccurs="1" name="Gender" type="string"/>
+      <element minOccurs="1" name="Nationality" type="string"/>
+      
+      <element minOccurs="1" name="SponsorName" type="string"/>
+      <element minOccurs="1" name="Attachments " type="bons0:Attachments_Type"/>  
+      <element minOccurs="1" name="StaffType" type="integer"/>
+      
+        </all>
+    </complexType>
+    
+	<complexType name="Attachments_Type">
+           <sequence>
+      <element maxOccurs="unbounded" minOccurs="1" name="Attachment" type="bons0:File_Type"/> 
+        </sequence>
+    </complexType>
+	
+	 <complexType name="FinalLicensingRequirements_Type">
+     <all><element minOccurs="1" name="BuildingArea" type="decimal"/>
+	  <element minOccurs="1" name="BasementArea" type="decimal"/>
+      <element minOccurs="1" name="ActualBeneficiariesNumber" type="integer"/>
+      <element minOccurs="1" name="CarryingCapacity" type="integer"/>
+      <element minOccurs="1" name="FinancialGuarantee" type="integer"/>
+      <element minOccurs="1" name="Attachments " type="bons0:Attachments_Type"/>
+        </all>
+    </complexType>
+    
+     <complexType name="File_Type">
+     <all>
+      <element minOccurs="1" name="FileId" type="string"/>
+	  <element minOccurs="1" name="Url" type="string"/>
+     <element minOccurs="1" name="DocTypeID" type="integer"/>
+        </all>
+    </complexType>	
+	
+	<complexType name="HealthCareServices_Type">
+        <all> 
+      <element minOccurs="1" name="ServiceType" type="integer"/>
+	   <element minOccurs="1" name="Attachments " type="bons0:Attachments_Type"/>
+        </all>
+    </complexType>
+	
+    
+    <complexType name="UpdateFinalLicenseRequestRs_BodyType">
+		<sequence>
+		
+		</sequence>
+    </complexType> 
+    
+    
+</xsd:schema>

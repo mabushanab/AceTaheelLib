@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://Taheel/CenterEstablishment/GetCentersDetails/v1.0"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/CenterEstablishment/GetCentersDetails/v1.0"
+	xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+	<xsd:import namespace="http://Takamol/Common/Types"
+		schemaLocation="../common/types/ESB_common_types_v1.0.xsd" />
+
+	<xsd:element name="GetCentersDetailsRq" type="bons0:GetCentersDetailsRq_Type" />
+	<xsd:element name="GetCentersDetailsRs" type="bons0:GetCentersDetailsRs_Type" />
+
+	<complexType name="GetCentersDetailsRq_Type">
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type" />
+			<xsd:element name="Body" type="bons0:GetCentersDetailsRq_BodyType" />
+		</sequence>
+	</complexType>
+
+	<complexType name="GetCentersDetailsRs_Type">
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type" />
+			<xsd:element name="Body" type="bons0:GetCentersDetailsRs_BodyType" />
+		</sequence>
+	</complexType>
+
+	<complexType name="GetCentersDetailsRq_BodyType">
+		<all>
+			<xsd:element minOccurs="0" name="CenterNameArabic" type="string" />
+			<xsd:element minOccurs="0" name="CenterNameEnglish" type="string"/>
+			<xsd:element minOccurs="0" name="LicenseType" type="bons0:LicenseType_Type" />
+			<xsd:element minOccurs="0" name="CenterId" type="integer" />
+			<xsd:element minOccurs="0" name="LicenseNo" type="integer" />
+		</all>
+	</complexType>
+	<simpleType name="LicenseType_Type">
+		<restriction base="integer">
+			<pattern value="[1-2]{1}" />
+		</restriction>
+	</simpleType>
+
+	<xsd:complexType name="GetCentersDetailsRs_BodyType">
+		<xsd:all>
+
+			<xsd:element minOccurs="0" name="CentersList" type="bons0:CentersList_Type" />
+			<xsd:element minOccurs="0" name="CenterDetails"
+				type="bons0:CenterDetails_Type" />
+
+		</xsd:all>
+	</xsd:complexType>
+
+	<xsd:complexType name="CentersList_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" maxOccurs="unbounded" name="Item"
+				type="bons0:CentersListItem_Type" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CenterDetails_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="LicenseType" type="bons0:LicenseType_Type" />
+			<xsd:element minOccurs="0" name="LicenseNo" type="integer" />
+			<xsd:element minOccurs="0" name="LicenseIssueDateH" type="string" />
+			<xsd:element minOccurs="0" name="LicenseExpDateH" type="string" />
+			<xsd:element minOccurs="0" name="CenterId" type="integer" />
+			<xsd:element minOccurs="0" name="CharacterType" type="bons0:CharacterType_Type" />
+			<xsd:element minOccurs="0" name="BneficiaryCategory" type="integer" />
+			<xsd:element minOccurs="0" name="CenterInfo" type="bons0:CenterInfo_Type" />
+			<xsd:element minOccurs="0" name="CenterOwnerInfo" type="bons0:CenterOwnerInfo_Type" />
+			<xsd:element minOccurs="0" name="CenterManagerInfo" type="bons0:CenterManagerInfo_Type" />
+			<xsd:element minOccurs="0" name="CenterLocation" type="bons0:CenterLocation_Type" />
+			<xsd:element minOccurs="0" name="CRNumber" type="integer" />
+			<xsd:element minOccurs="0" name="EntityName" type="string" />
+			<xsd:element minOccurs="0" name="CommissionerMobNo"	type="integer" />
+			<xsd:element minOccurs="0" name="Is_Active" type="integer" />
+			<xsd:element minOccurs="0" name="Is_Deleted" type="integer" />
+			<xsd:element minOccurs="0" name="RequestStatusID" type="integer" />
+			<xsd:element minOccurs="0" name="ReadinessAsseementResult" type="integer" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+<simpleType name="CharacterType_Type">
+		<restriction base="integer">
+			<pattern value="[0-1]{1}" />
+		</restriction>
+	</simpleType>
+	
+	<xsd:complexType name="CenterInfo_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="CenterName" type="string" />
+			<xsd:element minOccurs="0" name="CenterType" type="integer" />
+			<xsd:element minOccurs="0" name="PotentialCapacity" type="integer" />
+			<xsd:element minOccurs="0" name="CenterAgeGroup" type="bons0:CenterWorkPeriod_Type" />
+			<xsd:element minOccurs="0" name="CenterWorkPeriod" type="bons0:CenterWorkPeriod_Type" />
+			<xsd:element minOccurs="0" name="CenterGenderGroup" type="bons0:CenterWorkPeriod_Type" />
+			
+		</xsd:sequence>
+
+	</xsd:complexType>
+	
+	 <xsd:complexType name="CenterOwnerInfo_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="IdNo" type="integer" />
+			<xsd:element minOccurs="0" name="FullName" type="bons0:FullName_Type"  />
+			<xsd:element minOccurs="0" name="BirthDateH" type="string" />
+			<xsd:element minOccurs="0" name="MobileNO" type="string" />					
+		</xsd:sequence>
+	</xsd:complexType>
+	
+    <xsd:complexType name="CenterManagerInfo_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="IdNo" type="integer" />
+			<xsd:element minOccurs="0" name="FullName" type="bons0:FullName_Type" />				
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	 <xsd:complexType name="FullName_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="FirstName" type="string" />
+			<xsd:element minOccurs="0" name="SecondName" type="string" />
+			<xsd:element minOccurs="0" name="ThirdName" type="string" />
+			<xsd:element minOccurs="0" name="FamilyName" type="string" />					
+		</xsd:sequence>
+	</xsd:complexType>
+
+		
+	
+	
+	<xsd:complexType name="CenterLocation_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="Longitude" type="decimal" />
+			<xsd:element minOccurs="0" name="Latitude" type="decimal" />
+			<xsd:element minOccurs="0" name="City" type="string" />
+			<xsd:element minOccurs="0" name="Street" type="string" />
+			<xsd:element minOccurs="0" name="BuildingNo" type="integer" />
+			<xsd:element minOccurs="0" name="PostalCode" type="integer" />
+			<xsd:element minOccurs="0" name="AdditionalNumber" type="integer" />
+			<xsd:element minOccurs="0" name="Neighborhood" type="string" />
+			
+		</xsd:sequence>
+
+	</xsd:complexType>
+	
+	<simpleType name="CenterWorkPeriod_Type">
+		<restriction base="integer">
+			<pattern value="[1-3]{1}" />
+		</restriction>
+	</simpleType>
+
+	<xsd:complexType name="CentersListItem_Type">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="CenterId" type="integer" />
+			<xsd:element minOccurs="0" name="CenterNameArabic" type="string" />
+			<xsd:element minOccurs="0" name="CenterNameEnglish" type="string" />
+			<xsd:element minOccurs="0" name="CenterTypeArabic" type="string" />
+			<xsd:element minOccurs="0" name="CenterTypeEnglish" type="string" />
+			<xsd:element minOccurs="0" name="LicenseNumber" type="integer" />
+			<xsd:element minOccurs="0" name="LicenseStatus" type="bons0:LicenseStatus_Type" />
+			<xsd:element minOccurs="0" name="LicenseType" type="bons0:LicenseType_Type" />
+			<xsd:element minOccurs="0" name="LicenseTypeNameArabic" type="string" />
+			<xsd:element minOccurs="0" name="LicenseTypeNameEnglish" type="string" />
+		</xsd:sequence>
+
+	</xsd:complexType>
+	
+	<simpleType name="LicenseStatus_Type">
+		<restriction base="string">
+			<pattern value="[false|true]" />
+
+		</restriction>
+	</simpleType>
+	
+
+</xsd:schema>

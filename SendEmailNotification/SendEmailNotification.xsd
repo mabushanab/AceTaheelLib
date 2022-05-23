@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://Common/Notification/SendEmailNotification/v1.0"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Common/Notification/SendEmailNotification/v1.0"
+	xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+
+	<xsd:import namespace="http://Takamol/Common/Types"
+		schemaLocation="../common/types/ESB_common_types_v1.0.xsd" />
+
+
+	<xsd:element name="SendEmailNotificationRq" type="bons0:SendEmailNotificationRq_Type" />
+	<xsd:element name="SendEmailNotificationRs" type="bons0:SendEmailNotificationRs_Type" />
+
+	<complexType name="SendEmailNotificationRq_Type">
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type" />
+			<xsd:element name="Body"   type="bons0:SendEmailNotificationRq_BodyType" />
+		</sequence>
+	</complexType>
+
+	<complexType name="SendEmailNotificationRs_Type">
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type" />
+			<xsd:element name="Body"   type="bons0:SendEmailNotificationRs_BodyType" />
+		</sequence>
+	</complexType>
+
+	<complexType name="SendEmailNotificationRq_BodyType">
+		<all>
+			<element minOccurs="1" name="message" type="bons0:message_Type" />
+			<element minOccurs="0" name="send_at" type="bons1:Dt_Type" />
+		</all>
+	</complexType>
+
+	<complexType name="SendEmailNotificationRs_BodyType">
+	</complexType>
+
+
+	<complexType name="message_Type">
+		<all>
+			<element minOccurs="0" name="html" type="string" />
+			<element minOccurs="0" name="text" type="string" />
+			<element minOccurs="0" name="subject" type="string" />
+			<element minOccurs="1" name="from_email" type="bons0:Email_Type"  />
+			<element minOccurs="0" name="from_name" type="string" />
+		    <element minOccurs="1" name="to" type="bons0:ToList_Type"/>
+		   	<element minOccurs="0" name="attachments" type="bons0:FileList_Type" />
+			<element minOccurs="0" name="images" type="bons0:FileList_Type" />
+		</all>
+	</complexType>
+	
+	<complexType name="ToList_Type">
+        <sequence>
+      		<element  minOccurs="1" name="Item" type="bons0:Item_Type"/> 
+        </sequence>
+    </complexType>
+    
+     <complexType name="Item_Type">
+        <all>
+        	<element minOccurs="1" name="email" type="bons0:Email_Type" />
+			<element minOccurs="0" name="name" type="string" />			
+			<element minOccurs="0" name="type" type="string" />		
+	    </all>
+    </complexType> 
+
+
+	<complexType name="FileList_Type">
+        <sequence>
+      		<element maxOccurs="unbounded" minOccurs="0" name="FileItem" type="bons0:FileItem_Type"/> 
+        </sequence>
+    </complexType>
+	
+     <complexType name="FileItem_Type">
+        <all>
+        	<element minOccurs="1" name="type" type="string" />
+			<element minOccurs="1" name="name" type="string" />
+			<element minOccurs="1" name="content" type="string" />
+	    </all>
+    </complexType>
+    
+    
+    <simpleType name="Email_Type">
+		 <xsd:restriction base="xsd:string">
+              <xsd:pattern value="[a-z0-9\._%+!$*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})"/>
+         </xsd:restriction>
+	</simpleType>
+
+</xsd:schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://Taheel/DashboardServices/GetLicenseRequestComments/v1.0" xmlns="http://www.w3.org/2001/XMLSchema"
+ xmlns:bons0="http://Taheel/DashboardServices/GetLicenseRequestComments/v1.0" xmlns:bons1="http://Takamol/Common/Types"
+  xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+	<xsd:import namespace="http://Takamol/Common/Types" schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/> 
+
+	<xsd:element name="GetLicenseRequestCommentsRq" type="bons0:GetLicenseRequestCommentsRq_Type"/>
+	<xsd:element name="GetLicenseRequestCommentsRs" type="bons0:GetLicenseRequestCommentsRs_Type"/> 
+	
+	<complexType name="GetLicenseRequestCommentsRq_Type"> 
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/>
+			<xsd:element name="Body" type="bons0:GetLicenseRequestCommentsRq_BodyType"/>
+		</sequence>
+	</complexType>
+	<complexType name="GetLicenseRequestCommentsRs_Type"> 
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/>
+			<xsd:element name="Body" type="bons0:GetLicenseRequestCommentsRs_BodyType"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="GetLicenseRequestCommentsRq_BodyType">
+		<all>		
+			<element minOccurs="1" name="RequestId" type="integer"/>	
+			<element minOccurs="1" name="UserRole" type="integer" />
+		</all>	
+	</complexType>
+	<complexType name="GetLicenseRequestCommentsRs_BodyType">
+		<all>	
+			<element name="RequestComments" minOccurs="1" type="bons0:RequestComments_type"/>
+		</all>
+	</complexType>	
+	<complexType name="RequestComments_type">
+		<sequence>
+			<element type="integer" name="UserId" minOccurs="1" />
+			<element type="integer" name="UserRole" minOccurs="1" />
+			<element type="string" name="Comment" minOccurs="1" />
+			<element type="string" name="CreationDate" minOccurs="1" />
+		</sequence>
+	</complexType>
+		
+</xsd:schema>

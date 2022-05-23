@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Taheel/UserManagemnet/TaheelCenterUserRegistration/v1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/UserManagemnet/TaheelCenterUserRegistration/v1.0" xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+	<xsd:import namespace="http://Takamol/Common/Types" schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+
+  
+	<xsd:element name="TaheelCenterUserRegistrationRq" type="bons0:TaheelCenterUserRegistrationRq_Type"/>
+	<xsd:element name="TaheelCenterUserRegistrationRs"  type="bons0:TaheelCenterUserRegistrationRs_Type"/> 
+	
+	<complexType name="TaheelCenterUserRegistrationRq_Type"> 
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/>
+			<xsd:element name="Body" type="bons0:TaheelCenterUserRegistrationRq_BodyType"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="TaheelCenterUserRegistrationRs_Type"> 
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/> 
+			<xsd:element name="Body" type="bons0:TaheelCenterUserRegistrationRs_BodyType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="TaheelCenterUserRegistrationRq_BodyType">
+		<all>
+
+			<element minOccurs="1" name="IdNo" type="integer"/>
+			<element minOccurs="1" name="BirthDateH" type="string"/>
+			<element minOccurs="1" name="Lang" type="string"/>
+			<element minOccurs="1" name="UserType" type="integer"/> 
+			<element minOccurs="1" name="Email" type="string"/>	
+			<element minOccurs="1" name="Password" type="bons0:Pass_Type"/>
+			<element minOccurs="1" name="PhoneNo" type="string"/> 
+	
+		</all>  
+	</complexType>
+	
+       <simpleType name = "Pass_Type">
+                    <restriction base="string">
+                       <pattern value="([a-zA-Z0-9!@#$%^*]+){8}"/>
+                    </restriction>
+       </simpleType>
+
+	<complexType name="TaheelCenterUserRegistrationRs_BodyType">
+	
+	</complexType>
+	
+
+</xsd:schema>

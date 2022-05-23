@@ -1,0 +1,390 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "CreateFinalCenterLicense",
+    "version" : "1.0.0",
+    "description" : "CreateFinalCenterLicense"
+  },
+  "paths" : {
+    "/createfinallicense" : {
+      "post" : {
+        "operationId" : "CreateFinalCenterLicense",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/CreateFinalCenterLicenseRs_MessageType"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "CreateFinalCenterLicense",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/CreateFinalCenterLicenseRq_MessageType"
+          },
+          "description" : "CreateFinalCenterLicenseRq",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/centerestablishment",
+  "definitions" : {
+    "CreateFinalCenterLicenseRq_MessageType" : {
+      "type" : "object",
+      "properties" : {
+        "CreateFinalCenterLicenseRq" : {
+          "$ref" : "#/definitions/CreateFinalCenterLicenseRq_Type"
+        }
+      }
+    },
+    "CreateFinalCenterLicenseRs_MessageType" : {
+      "type" : "object",
+      "properties" : {
+        "CreateFinalCenterLicenseRs" : {
+          "$ref" : "#/definitions/CreateFinalCenterLicenseRs_Type"
+        }
+      }
+    },
+    "CreateFinalCenterLicenseRq_Type" : {
+      "type" : "object",
+      "properties" : {
+        "Header" : {
+          "$ref" : "#/definitions/ESBXMLRequestHeader_Type"
+        },
+        "Body" : {
+          "$ref" : "#/definitions/CreateFinalCenterLicenseRq_BodyType"
+        }
+      }
+    },
+    "CreateFinalCenterLicenseRq_BodyType" : {
+      "type" : "object",
+      "properties" : {
+    "LicenseId" : {
+          "type" : "string"
+        },
+    "CRNumber" : {
+          "type" : "integer" 
+        },
+     "StaffInfoList":{
+           "$ref" : "#/definitions/StaffInfoList_Type"
+      },
+      "FinalLicensingRequirements":{
+           "$ref" : "#/definitions/FinalLicensingRequirements_Type"
+      },
+      "HealthCareServices":{
+           "$ref" : "#/definitions/HealthCareServices_Type"
+      },
+      "IsHealthCareService" : {
+          "type" : "integer" 
+        }
+    }
+  },	
+	
+	
+	
+	
+	 "StaffInfoList_Type" : {
+		      "type" : "object",
+		      "properties" : {	
+		        "StaffInfoListItem" : {
+		          "type" : "array" ,
+		          "items" :{ 
+		           "$ref" : "#/definitions/StaffInfoListItem_Type"
+
+		            }
+		        
+		        }
+		      }
+		    },
+	
+	"StaffInfoListItem_Type" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "IdNo" : {
+          "type" : "string"
+        },
+        "BirthDateH" : {
+          "type" : "string"
+        },
+        "Gender" : {
+          "type" : "string"
+        },
+        "Nationality" : {
+            "type" : "string"
+          },
+        "SponsorName" : {
+            "type" : "string"
+          },
+        "Attachments " : {
+              "$ref" : "#/definitions/Attachments_Type"
+          },
+		
+		"StaffType" : {
+          "type" : "integer"
+        }
+		
+      }
+    },
+    
+    "Attachments_Type" : {
+    	 "type" : "object",
+	      "properties" : {	
+	        "Attachment" : {
+	          "type" : "array" ,
+	          "items" :{ 
+	           "$ref" : "#/definitions/File_Type"
+
+	            }
+	        
+	        }
+	      }
+	    },
+	    
+	    
+	
+	"FinalLicensingRequirements_Type" : {
+      "type" : "object",
+      "properties" : {
+        "OperationalPlans" : {
+          "$ref" : "#/definitions/File_Type"
+        },
+        "ExecutivePlans" : {
+          "$ref" : "#/definitions/File_Type"
+        },
+        "EngineeringOfficeReport" : {
+          "$ref" : "#/definitions/File_Type"
+        },
+        "BuildingArea" : {
+          "type" : "string"
+        },
+		"BasementArea" : {
+          "type" : "string"
+        },
+		"ActualBeneficiariesNumber" : {
+          "type" : "integer"
+        },
+		"FurnitureAppliancesPhotos" : {
+          "$ref" : "#/definitions/File_Type"
+        },
+		"SecurityScanResult":{
+		  "$ref" : "#/definitions/File_Type"
+		},
+		"CarryingCapacity" : {
+          "type" : "integer"
+        },
+		"FinancialGuarantee" : {
+          "type" : "integer"
+        },
+		"FinancialGuaranteeDoc" : {
+          "$ref" : "#/definitions/File_Type"
+        }
+      }
+    },
+	
+	
+	"HealthCareServices_Type" : {
+      "type" : "object",
+      "properties" : {
+        "ServicType" : {
+          "type" : "integer"
+        },
+        "Attachments " : {
+            "$ref" : "#/definitions/Attachments_Type"
+        }
+      }
+    },
+	
+	
+	
+	
+    "File_Type" : {
+        "type" : "object",
+        "properties" : {
+          "FileId" : {
+            "type" : "string"
+          }, 
+  		"DocTypeID" : {
+            "type" : "integer"
+          },
+          "Url" : {
+              "type" : "string"
+            }
+        }
+      },
+	
+   
+    "CreateFinalCenterLicenseRs_Type" : {
+      "type" : "object",
+      "properties" : {
+        "Header" : {
+          "$ref" : "#/definitions/ESBXMLResponseHeader_Type"
+        },
+        "Body" : {
+          "$ref" : "#/definitions/CreateFinalCenterLicenseRs_BodyType"
+        }
+      }
+    },
+    "CreateFinalCenterLicenseRs_BodyType" : {
+      "type" : "object",
+      "properties" : {
+     "LicenseId":{
+        "type" : "integer"     
+      },
+	  "RequestId":{
+        "type" : "integer"     
+      }
+      }
+    },
+  
+  
+   
+    "ESBXMLRequestHeader_Type" : {
+      "type" : "object",
+      "properties" : {
+        "TransactionId" : {
+          "type" : "string"
+        },
+        "ChannelId" : {
+          "type" : "string"
+        },
+        "SessionId" : {
+          "type" : "string"
+        },
+        "RequestTime" : {
+          "type" : "string"
+        },
+        "MWRequestTime" : {
+          "type" : "string"
+        },
+        "ServiceCode" : {
+          "type" : "string"
+        },
+        "DebugFlag" : {
+          "type" : "integer"
+        },
+        "UserInfo" : {
+          "$ref" : "#/definitions/UserInfo_Type"
+        },
+        "UDF" : {
+          "$ref" : "#/definitions/UDF_Type"
+        }
+      },
+      "required" : [ "ServiceCode", "ChannelId", "TransactionId", "RequestTime" ]
+    },
+    "ESBXMLResponseHeader_Type" : {
+      "type" : "object",
+      "properties" : {
+        "TransactionId" : {
+          "type" : "string"
+        },
+        "ChannelId" : {
+          "type" : "string"
+        },
+        "SessionId" : {
+          "type" : "string"
+        },
+        "RequestTime" : {
+          "type" : "string"
+        },
+        "MWRequestTime" : {
+          "type" : "string"
+        },
+        "MWResponseime" : {
+          "type" : "string"
+        },
+        "ServiceCode" : {
+          "type" : "string"
+        },
+        "DebugFlag" : {
+          "type" : "integer"
+        },
+        "UserInfo" : {
+          "$ref" : "#/definitions/UserInfo_Type"
+        },
+        "UDF" : {
+          "$ref" : "#/definitions/UDF_Type"
+        },
+        "ResponseStatus" : {
+          "$ref" : "#/definitions/MWResponseStatus_Type"
+        },
+        "BackendError" : {
+          "$ref" : "#/definitions/BackendError_Type"
+        }
+      },
+      "required" : [ "TransactionId", "ChannelId", "RequestTime", "ServiceCode" ]
+    },
+    "UDF_Type" : {
+      "type" : "object",
+      "properties" : {
+        "KeyValueArr" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/KeyValueArr_Type"
+          }
+        }
+      }
+    },
+    "KeyValueArr_Type" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Tmstmp_Type" : {
+      "type" : "object"
+    },
+    "UserInfo_Type" : {
+      "type" : "object",
+      "properties" : {
+        "UserId" : {
+          "type" : "string"
+        },
+        "IDNumber" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MWResponseStatus_Type" : {
+      "type" : "object",
+      "properties" : {
+        "Status" : {
+          "type" : "string"
+        },
+        "Code" : {
+          "type" : "string"
+        },
+        "ArabicMsg" : {
+          "type" : "string"
+        },
+        "EnglishMsg" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Code", "Status", "ArabicMsg", "EnglishMsg" ]
+    },
+    "BackendError_Type" : {
+      "type" : "object",
+      "properties" : {
+        "ErrorCode" : {
+          "type" : "string"
+        },
+        "ErrorDescription" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0= "http://Takamol/Common/Types"
+	xmlns:bons1="http://Taheel/CenterEstablishment/CreateTemporaryLicense/v1.0"	
+	xmlns:bons2="http://Taheel/CenterEstablishment/CreateUpdateFinalLicenseDraft/v1.0"
+    xmlns:bons3="http://Taheel/UserManagemnet/TaheelCenterUserRegistration/v1.0"	
+	xmlns:bons4="http://Taheel/UserManagemnet/TaheelCenterUserLogin/v1.0" 
+	xmlns:bons5="http://Taheel/CenterEstablishment/CreateFinalCenterLicense/v1.0" 
+	xmlns:bons6="http://Taheel/CenterEstablishment/FinalLicenseWorkflowOperations/v1.0" 
+    xmlns:bons7="http://Taheel/CenterEstablishment/GetCentersDetails/v1.0" 
+	xmlns:bons8="http://Common/Notification/SendEmailNotification/v1.0" 
+	xmlns:bons9="http://Taheel/UserManagemnet/TaheelCenterUserPasswordReset/v1.0" 
+	xmlns:bons10="http://Common/Momra/GetMoMRALicenseDetails/v1.0" 
+	xmlns:bons11="http://Taheel/CenterEstablishment/UpdateFinalLicenseRequest/v1.0" 
+	xmlns:bons12="http://Taheel/common/GetRequestDraft/v1.0" 
+	xmlns:bons13="http://Taheel/CenterEstablishment/GetLicenseDetails/v1.0"
+	xmlns:bons14="http://Taheel/UserManagemnet/GetTaheelUserInfo/v1.0"
+	xmlns:bons15="http://Taheel/DashboardServices/GetLicenseRequestComments/v1.0" >
+	
+	
+	<xsd:import
+		namespace="http://Taheel/CenterEstablishment/CreateTemporaryLicense/v1.0" 
+		schemaLocation="CreateTemporaryLicense\CreateTemporaryLicense.xsd" />	
+	
+	<xsd:import
+		namespace="http://Taheel/CenterEstablishment/CreateUpdateFinalLicenseDraft/v1.0" 
+		schemaLocation="CreateUpdateFinalLicenseDraft\CreateUpdateFinalLicenseDraft.xsd" />
+
+    <xsd:import
+		namespace="http://Taheel/UserManagemnet/TaheelCenterUserRegistration/v1.0" 
+		schemaLocation="TaheelCenterUserRegistration\TaheelCenterUserRegistration.xsd" />	
+		
+	<xsd:import
+		namespace="http://Taheel/UserManagemnet/TaheelCenterUserLogin/v1.0" 
+		schemaLocation="TaheelCenterUserLogin\TaheelCenterUserLogin.xsd" />		
+		
+	<xsd:import
+		namespace="http://Taheel/CenterEstablishment/CreateFinalCenterLicense/v1.0" 
+		schemaLocation="CreateFinalCenterLicense\CreateFinalCenterLicense.xsd" />		
+		
+	<xsd:import namespace="http://Taheel/CenterEstablishment/GetCentersDetails/v1.0" 
+		schemaLocation="GetCentersDetails\GetCentersDetails.xsd" />
+			
+	<xsd:import
+		namespace="http://Taheel/CenterEstablishment/FinalLicenseWorkflowOperations/v1.0" 
+		schemaLocation="FinalLicenseWorkflowOperations\FinalLicenseWorkflowOperations.xsd" />		
+	
+	<xsd:import namespace="http://Common/Notification/SendEmailNotification/v1.0"
+		schemaLocation="SendEmailNotification\SendEmailNotification.xsd" />
+		
+	<xsd:import namespace="http://Taheel/UserManagemnet/TaheelCenterUserPasswordReset/v1.0"
+		schemaLocation="TaheelCenterUserPasswordReset\TaheelCenterUserPasswordReset.xsd" />	
+		
+	<xsd:import namespace="http://Common/Momra/GetMoMRALicenseDetails/v1.0"
+		schemaLocation="GetMoMRALicenseDetails\GetMoMRALicenseDetails.xsd" />	
+		
+	<xsd:import
+		namespace="http://Taheel/CenterEstablishment/UpdateFinalLicenseRequest/v1.0" 
+		schemaLocation="UpdateFinalLicenseRequest\UpdateFinalLicenseRequest.xsd" />
+		
+	<xsd:import
+		namespace="http://Taheel/common/GetRequestDraft/v1.0" 
+		schemaLocation="GetRequestDraft\GetRequestDraft.xsd" />
+		
+	<xsd:import
+		namespace="http://Taheel/CenterEstablishment/GetLicenseDetails/v1.0" 
+		schemaLocation="GetLicenseDetails\GetLicenseDetails.xsd" />
+
+    <xsd:import
+		namespace="http://Taheel/UserManagemnet/GetTaheelUserInfo/v1.0" 
+		schemaLocation="GetTaheelUserInfo\GetTaheelUserInfo.xsd" />
+    
+    <xsd:import
+		namespace="http://Taheel/DashboardServices/GetLicenseRequestComments/v1.0" 
+		schemaLocation="GetLicenseRequestComments\GetLicenseRequestComments.xsd" />
+		
+	<xsd:element name="CreateTemporaryLicenseRq" type="bons1:CreateTemporaryLicenseRq_Type"/>
+	<xsd:element name="CreateTemporaryLicenseRs" type="bons1:CreateTemporaryLicenseRs_Type"/> 
+	
+	<xsd:element name="CreateUpdateFinalLicenseDraftRq" type="bons2:CreateUpdateFinalLicenseDraftRq_Type"/>
+	<xsd:element name="CreateUpdateFinalLicenseDraftRs" type="bons2:CreateUpdateFinalLicenseDraftRs_Type"/> 
+
+        <xsd:element name="TaheelCenterUserRegistrationRq" type="bons3:TaheelCenterUserRegistrationRq_Type"/>
+	<xsd:element name="TaheelCenterUserRegistrationRs" type="bons3:TaheelCenterUserRegistrationRs_Type"/> 
+	
+	<xsd:element name="TaheelCenterUserLoginRq" type="bons4:TaheelCenterUserLoginRq_Type"/>
+	<xsd:element name="TaheelCenterUserLoginRs" type="bons4:TaheelCenterUserLoginRs_Type"/> 
+	
+	<xsd:element name="CreateFinalCenterLicenseRq" type="bons5:CreateFinalCenterLicenseRq_Type"/> 
+	<xsd:element name="CreateFinalCenterLicenseRs" type="bons5:CreateFinalCenterLicenseRs_Type"/> 
+	
+
+    <xsd:element name="FinalLicenseWorkflowOperationsRq" type="bons6:FinalLicenseWorkflowOperationsRq_Type"/>
+	<xsd:element name="FinalLicenseWorkflowOperationsRs" type="bons6:FinalLicenseWorkflowOperationsRs_Type"/> 
+       
+    <xsd:element name="GetCentersDetailsRq" type="bons7:GetCentersDetailsRq_Type" />
+	<xsd:element name="GetCentersDetailsRs" type="bons7:GetCentersDetailsRs_Type" />
+
+	<xsd:element name="SendEmailNotificationRq" type="bons8:SendEmailNotificationRq_Type" />
+	<xsd:element name="SendEmailNotificationRs" type="bons8:SendEmailNotificationRs_Type" />
+
+	<xsd:element name="TaheelCenterUserPasswordResetRq" type="bons9:TaheelCenterUserPasswordResetRq_Type" />
+	<xsd:element name="TaheelCenterUserPasswordResetRs" type="bons9:TaheelCenterUserPasswordResetRs_Type" />
+	
+	<xsd:element name="GetMoMRALicenseDetailsRq" type="bons10:GetMoMRALicenseDetailsRq_Type" />
+	<xsd:element name="GetMoMRALicenseDetailsRs" type="bons10:GetMoMRALicenseDetailsRs_Type" />
+	
+	 <xsd:element name="UpdateFinalLicenseRequestRq" type="bons11:UpdateFinalLicenseRequestRq_Type"/>
+	 <xsd:element name="UpdateFinalLicenseRequestRs" type="bons11:UpdateFinalLicenseRequestRs_Type"/> 
+	 
+	<xsd:element name="GetRequestDraftRq" type="bons12:GetRequestDraftRq_Type"/>
+	<xsd:element name="GetRequestDraftRs" type="bons12:GetRequestDraftRs_Type"/>
+	
+	 <xsd:element name="GetLicenseDetailsRq" type="bons13:GetLicenseDetailsRq_Type"/>
+	 <xsd:element name="GetLicenseDetailsRs" type="bons13:GetLicenseDetailsRs_Type"/> 
+	 
+	 <xsd:element name="GetTaheelUserInfoRq" type="bons14:GetTaheelUserInfoRq_Type"/>
+	 <xsd:element name="GetTaheelUserInfoRs" type="bons14:GetTaheelUserInfoRs_Type"/> 
+	 
+   	 <xsd:element name="GetLicenseRequestCommentsRq" type="bons15:GetLicenseRequestCommentsRq_Type"/>
+	 <xsd:element name="GetLicenseRequestCommentsRs" type="bons15:GetLicenseRequestCommentsRs_Type"/> 
+	
+</xsd:schema> 

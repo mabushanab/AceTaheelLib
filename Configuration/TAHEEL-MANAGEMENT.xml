@@ -1,0 +1,500 @@
+<properties refresh-policy="automatic">
+      <group name="GetTaheelUserInfo.GetTaheelUserInfoFlow">  
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		   <property name="NoData_Error" value="E0000341" /> 
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" /> 
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+          <group name="GetLicenseDetails.GetLicenseDetailsFlow">  
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		    <property name="NoBen" value="E0000315" />
+		    <property name="NoCenter" value="E0000328" />
+			<property name="NoDataFound" value="E0000024" />
+			<property name="Normal" value="1" />
+			<property name="Legal" value="2" />
+			<property name="temp" value="2" />
+			<property name="active" value="1" /> 
+			<property name="TimeOutError" value="E9999998" />
+		    <property name="NoPara" value="E0000004" /> 
+			<property name="ServiceCodeCR" value="GEBCR001" /> 
+			<property name="ChannelId" value="ESB" /> 
+			<property name="Gender" value="E0000249" />
+			<property name="NotFoundOwner" value="E0000256" />
+			<property name="ServiceCodeCitizen" value="NGCI0001" /> 
+			<property name="NoUser" value="E0000257" />
+			<property name="pick" value="E0000305" />
+			<property name="NotOwner" value="E0000321" />
+			<property name="NoLicense" value="E0000322" />
+			<property name="GetByCrOffset" value="14" />
+			<property name="GetCitizenOffset" value="15" />
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" /> 
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+   <group name="UpdateFinalLicenseRequest.UpdateFinalLicenseRequestFlow"> 
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		    <property name="WrongStaff" value="E0000319" />  
+		    <property name="WrongServiceType" value="E0000318" />  
+		    <property name="Manager" value="2" />  
+		    <property name="Cancel" value="E0000276" />
+			<property name="NoDataFound" value="E0000024" />
+			<property name="TimeOutError" value="E9999998" />
+			<property name="NotAllowed" value="E0000274" />	
+			<property name="NoData" value="E0000270" /> 
+		    <property name="NoPara" value="E0000004" /> 
+			<property name="Employee" value="1" /> 
+			<property name="NOper" value="E0000271" /> 
+			<property name="Rej" value="E0000272" />
+			<property name="IdenticalIdno" value="E0000334" /> 
+			
+			 
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" />  
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+
+<group name="FinalLicenseWorkflowOperations.FinalLicenseWorkflowOperationsFlow"> 
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		
+		    <property name="SendEmailOffset" value="16" />  
+		    <property name="Manager" value="2" />  
+		    <property name="NoIdNumber" value="E0000168" />
+			<property name="NoDataFound" value="E0000024" />
+			<property name="TimeOutError" value="E9999998" />
+			<property name="NoData" value="E0000270" /> 
+		    <property name="NoPara" value="E0000004" /> 
+			<property name="Employee" value="1" />
+			<property name="NOper" value="E0000271" /> 
+			<property name="Rej" value="E0000272" />
+            <property name="NotAllowed" value="E0000274" />						
+			<property name="Approve" value="E0000273" /> 
+			<property name="NotEmployee" value="E0000277" /> 
+			<property name="User_Role_ID" value="E0000277" /> 
+			
+			<property name="URL1" value="https://icp-proxy.qiwa.info:30509/DecisionService/rest/v1/CheckLicenseExpiryPeriod_DC/1.0/CheckLicenseExpiryPeriod" />
+			<property name="ERRORCode" value="ODM99997" />
+			<property name="Authorization" value="Basic cmVzQWRtaW4xOnJlc0FkbWlu" />
+			<property name="ServiceHost" value="icp-proxy.qiwa.info" />
+			<property name="ServiceCodeEmail" value="SEN00001" /> 
+			<property name="ChannelId" value="ESB" /> 
+
+			
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" /> 
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+
+   <group name="CreateFinalCenterLicense.CreateFinalCenterLicenseFlow"> 
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		    <property name="WrongStaff" value="E0000319" />  
+			<property name="WrongServiceType" value="E0000318" />  
+		    <property name="Final" value="1" />  
+		    <property name="ServiceCodeMomra" value="GMLD0001" />  
+		    <property name="ServiceCodeCR" value="GEBCR001" /> 
+			<property name="ChannelId" value="Nawa" /> 
+		    <property name="NoIdNumber" value="E0000168" />
+			<property name="NoDataFound" value="E0000024" />
+			<property name="NotAllowed" value="E0000274" />
+			<property name="TimeOutError" value="E9999998" />
+			<property name="NoData" value="E0000269" /> 
+		    <property name="NoPara" value="E0000004" /> 
+			<property name="active" value="1" />
+			<property name="GetMomraOffset" value="10" />
+			<property name="GetByCrOffset" value="11" />
+			<property name="FinalReqAlready" value="E0000331" />  
+			<property name="IdenticalIdno" value="E0000334" /> 
+			<property name="DeadPerson" value="E0000339" />
+			
+			
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" />   
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+    <group name="TaheelCenterUserRegistration.TaheelCenterUserRegistrationFlow"> 
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		
+		<group name="Variables">
+			<property name="NoDataFound" value="E0000234" />
+			<property name="TimeOutError" value="E9999998" />
+		    <property name="NoPara" value="E0000004" /> 
+			<property name="ServiceCodeGetUser" value="GUI00002" /> 
+			<property name="ChannelId" value="ESB" />
+			<property name="UserAge" value="E0000291" />
+            <property name="UserInfoOffset" value="17" />			
+			
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" /> 
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+	 <group name="TaheelCenterUserLogin.UserLogin"> 
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" />
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+			<property name="NoData_Error" value="E0000238" /> 
+			<property name="NoPara" value="E0000004" /> 
+		    <property name="locked" value="E0000251" /> 
+			<property name="Pick" value="E0000307" />
+			<property name="Idno" value="1" />
+			<property name="Email" value="2" />			
+			
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" />
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+   <group name="CreateTemporaryLicense.CreateTemporaryLicenseFlow"> 
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		    <property name="NoBen" value="E0000315" />
+		    <property name="NoCenter" value="E0000314" />
+			<property name="NoDataFound" value="E0000024" />
+			<property name="Normal" value="1" />
+			<property name="Legal" value="2" />
+			<property name="temp" value="2" />
+			<property name="active" value="1" />
+			<property name="GetByCrOffset" value="12" />
+			<property name="GetCitizen" value="13" />
+			<property name="TimeOutError" value="E9999998" />
+		    <property name="NoPara" value="E0000004" /> 
+			<property name="ServiceCodeCR" value="GEBCR001" /> 
+			<property name="ChannelId" value="ESB" /> 
+			<property name="Gender" value="E0000249" />
+			<property name="NotFoundOwner" value="E0000256" />
+			<property name="ServiceCodeCitizen" value="NGCI0001" /> 
+			<property name="NoUser" value="E0000257" />
+			<property name="pick" value="E0000305" />
+			<property name="NonSaudi" value="E0000332" />
+			<property name="DeadPerson" value="E0000339" />
+			<property name="URL" value="https://icp-proxy.qiwa.info:30509/DecisionService/rest/v1/CheckCenterEstablishmentAgeGroup_DC/1.0/CheckCenterEstablishmentAgeGroup" />
+			<property name="ERRORCode" value="ODM99997" />
+			<property name="Authorization" value="Basic cmVzQWRtaW4xOnJlc0FkbWlu" />
+			<property name="ServiceHost" value="icp-proxy.qiwa.info" />
+			<property name="URL1" value="https://icp-proxy.qiwa.info:30509/DecisionService/rest/v1/CheckLicenseExpiryPeriod_DC/1.0/CheckLicenseExpiryPeriod" />
+
+		</group> 
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" /> 
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+	<group name="CreateUpdateFinalLicenseDraft.CreateUpdateFinalLicenseDraftFlow"> 
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" /> 
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" /> 
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		    <property name="NoIdNumber" value="E0000168" />
+			<property name="NoDataFound" value="E0000024" />
+			<property name="TimeOutError" value="E9999998" />
+		    <property name="NoPara" value="E0000004" /> 
+			<property name="Nodraft" value="E0000268" />
+            <property name="NoUser" value="E0000292" />			
+			
+		</group>
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" /> 
+        </group>
+		<group name="Retry">
+				<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+      
+	  <group name="GetCentersDetails.GetCentersDetailsFlow">
+        <group name="Logging">
+            <property name="LogEnabled" value="FALSE" />
+            <property name="AuditEnabled" value="FALSE" />
+            <property name="key1" value="" />
+            <property name="value1" value="" />
+            <property name="key2" value="" />
+            <property name="value2" value="" />
+            <property name="key3" value="" />
+            <property name="value3" value="" />
+            <property name="key4" value="" />
+            <property name="value4" value="" />
+        </group>
+        <group name="Variables">
+       
+        </group>
+        <group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" />
+        </group>
+        <group name="Retry">
+                <property name="RetryEnabled" value="FALSE" />
+            <property name="minWaitDurationSec" value="60" />
+            <property name="maxRetryCount" value="5" />
+        </group>
+    </group>
+   
+	<group name="SendEmailNotification.SendEmailNotificationFlow">
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" />
+			<property name="AuditEnabled" value="TRUE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" />
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+			<property name="IsSystemAvailable" value= "TRUE" /> 
+			<property name="RestServiceURL" value= "http://mandrillapp.com/api/1.0/messages/send" />
+			<property name="ServiceHost" value="mandrillapp.com"/>
+			<property name="APIKey" value="AlI_Nxi5hMcZl6XhFXV2zg"/>
+			<property name="WSInternalSystemErrorCode" value= "EM999999" />
+			<property name="WSSystemDownErrorCode"     value= "Em999998" />
+		</group>	
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="FALSE" /> 
+        </group>		
+		<group name="Retry">
+			<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+
+		<group name="TaheelCenterUserPasswordReset.TaheelCenterUserPasswordResetFlow">
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" />
+			<property name="AuditEnabled" value="TRUE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" />
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+			<property name="NoDataFound" value="TCUPRE001" />
+			<property name="TimeOutError"    value="E9999998" />
+		</group>	
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" />
+        </group>		
+		<group name="Retry">
+			<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+
+	<group name="GetMoMRALicenseDetails.GetMoMRALicenseDetailsFlow">
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" />
+			<property name="AuditEnabled" value="TRUE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" />
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+			<property name="IsSystemAvailable" value= "TRUE" /> 
+			<property name="WebServiceURL" value= "http://datapower.qiwa.info:9003/RuralAffairs/MOMRAShopLicence/4.0/ShopLicenseService.svc" />
+			<property name="SoapAction" value="http://tempuri.org/IShopLicenseService/GetShopLicenseInfo"/>
+			<property name="WSInternalSystemErrorCode" value= "MOR99999" />
+			<property name="WSSystemDownErrorCode"     value= "MOR99998" />
+			<property name="NoDataFound" 			value="MOR00001" />		
+		</group>	
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" />
+        </group>		
+		<group name="Retry">
+			<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+<group name="GetRequestDraft.GetRequestDraftFlow">
+		<group name="Logging">
+			<property name="LogEnabled" value="TRUE" />
+			<property name="AuditEnabled" value="FALSE" />
+			<property name="key1" value="" />
+			<property name="value1" value="" />
+			<property name="key2" value="" />
+			<property name="value2" value="" />
+			<property name="key3" value="" />
+			<property name="value3" value="" />
+			<property name="key4" value="" />
+			<property name="value4" value="" />
+		</group>
+		<group name="Variables">
+		</group>	
+		<group name="SchemaValidation">
+            <property name="ValidationEnabled" value="TRUE" />
+        </group>		
+		<group name="Retry">
+			<property name="RetryEnabled" value="FALSE" />
+			<property name="minWaitDurationSec" value="60" />
+			<property name="maxRetryCount" value="5" />
+		</group>
+	</group>
+	
+	
+</properties>
+	

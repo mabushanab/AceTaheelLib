@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://Taheel/common/GetRequestDraft/v1.0" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://Taheel/common/GetRequestDraft/v1.0" xmlns:bons1="http://Takamol/Common/Types"
+	xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+ 
+
+	<xsd:import namespace="http://Takamol/Common/Types" schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+
+		<xsd:element name="GetRequestDraftRq" type="bons0:GetRequestDraftRq_Type" />
+		<xsd:element name="GetRequestDraftRs" type="bons0:GetRequestDraftRs_Type" />
+
+		<complexType name="GetRequestDraftRq_Type">
+			<sequence>
+				<xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type" />
+				<xsd:element name="Body" type="bons0:GetRequestDraftRq_BodyType" />
+			</sequence>
+		</complexType>
+
+		<complexType name="GetRequestDraftRs_Type">
+			<sequence>
+				<xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type" />
+				<xsd:element name="Body" type="bons0:GetRequestDraftRs_BodyType" />
+			</sequence>
+		</complexType>
+
+		<complexType name="GetRequestDraftRq_BodyType">
+			<all>
+				<element minOccurs="0" name="DraftId"   type="integer" />
+			</all>
+		</complexType>
+		
+		<complexType name="GetRequestDraftRs_BodyType">
+			<all>
+			
+				<element minOccurs="0"  name="DraftList" type="bons0:DraftList_Type"/>
+				
+			</all>
+		</complexType>
+		
+		
+		<complexType name="DraftList_Type">
+			<sequence>
+			<element minOccurs="0" name="DraftData"   type="bons0:DraftListItem_Type" />
+			</sequence>
+		</complexType>
+		
+		<complexType name="DraftListItem_Type">
+			<all>
+				<element minOccurs="1" name="DraftId"   type="integer" />
+				<element minOccurs="1" name="DraftData"   type="string" />
+
+				
+			</all>
+		</complexType>
+
+	
+	</xsd:schema>

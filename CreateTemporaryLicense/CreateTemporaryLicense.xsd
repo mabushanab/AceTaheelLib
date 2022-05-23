@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Taheel/CenterEstablishment/CreateTemporaryLicense/v1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/CenterEstablishment/CreateTemporaryLicense/v1.0" xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+    <xsd:import namespace="http://Takamol/Common/Types"  schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+ 
+    <xsd:element name="CreateTemporaryLicenseRq"  type="bons0:CreateTemporaryLicenseRq_Type"/>
+    <xsd:element name="CreateTemporaryLicenseRs" type="bons0:CreateTemporaryLicenseRs_Type"/>
+     
+    <complexType name="CreateTemporaryLicenseRq_Type">
+        <sequence> 
+            <xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/> 
+            <xsd:element name="Body" type="bons0:CreateTemporaryLicenseRq_BodyType"/>
+        </sequence>
+    </complexType>
+    
+    <complexType name="CreateTemporaryLicenseRs_Type"> 
+        <sequence> 
+            <xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/>
+            <xsd:element minOccurs="0" name="Body" type="bons0:CreateTemporaryLicenseRs_BodyType"/>
+        </sequence>
+    </complexType>
+
+ 
+
+    <complexType name="CreateTemporaryLicenseRq_BodyType">
+    <all>
+	     <element minOccurs="1" name="CenterLocation" type="bons0:CenterLocation_Type"/>
+         <element minOccurs="1" name="CenterInfo" type="bons0:CenterInfo_Type"/>
+         <element minOccurs="0" name="CenterManagerInfo" type="bons0:CenterManagerInfo_Type"/>
+         <element minOccurs="0" name="ReadinessAsseementResult" type="integer"/>     
+         <element minOccurs="1" name="BneficiaryCategory" type="integer"/>
+         <element minOccurs="1" name="CharacterType">
+         <simpleType>
+					<restriction base="integer"> 
+						  <xsd:enumeration value="1"/>
+						  <xsd:enumeration value="2"/> 
+					</restriction>
+				</simpleType>
+	  </element>
+		 <element minOccurs="0" name="IdNo">
+		         <simpleType>
+                       <xsd:restriction base="xsd:string">
+                          <xsd:pattern value="[0-9]{10}"/>
+                       </xsd:restriction>
+                      </simpleType>
+         </element>
+         <element minOccurs="0" name="CRNumber" type="integer"/> 
+         
+    </all>
+    </complexType>  
+
+   <complexType name="CenterLocation_Type">
+        <all>
+      <element minOccurs="1" name="Longitude">
+      <xsd:simpleType>
+       <xsd:restriction base="decimal">
+            <xsd:minInclusive value="-180"/>
+            <xsd:maxInclusive value="180"/>
+         </xsd:restriction>
+       </xsd:simpleType>
+      </element>
+      <element minOccurs="1" name="Latitude" >
+      <xsd:simpleType>
+       <xsd:restriction base="decimal">
+            <xsd:minInclusive value="-90"/>
+            <xsd:maxInclusive value="90"/>
+         </xsd:restriction>
+       </xsd:simpleType>
+      </element>
+      <element minOccurs="0" name="BuildingNo" type="integer"/>
+      <element minOccurs="0" name="Street" type="string"/>
+	  <element minOccurs="0" name="Neighborhood" type="string"/>
+      <element minOccurs="0" name="City" type="string"/>
+      <element minOccurs="0" name="PostalCode" type="integer"/>
+      <element minOccurs="0" name="AdditionalNumber" type="integer"/>
+        </all>
+    </complexType>
+    
+
+    <complexType name="CenterInfo_Type">
+        <all>
+      <element minOccurs="1" name="CenterName" type="string"/>
+      <element minOccurs="1" name="CenterType" > 
+          <simpleType>
+                       <xsd:restriction base="xsd:string">
+                          <xsd:pattern value="[0-9]{5}"/>
+                       </xsd:restriction>
+                      </simpleType>
+         </element>
+      <element minOccurs="1" name="PotentialCapacity" type="integer"/>
+      <element minOccurs="1" name="CenterWorkPeriod">
+	  <simpleType>
+					<restriction base="integer">
+						  <xsd:enumeration value="1"/>
+						  <xsd:enumeration value="2"/>
+						  <xsd:enumeration value="0"/>
+					</restriction>
+				</simpleType>
+	  </element>
+	  <element minOccurs="1" name="CenterAgeGroup">
+	  <simpleType>
+					<restriction base="integer">
+						  <xsd:enumeration value="1"/>
+						  <xsd:enumeration value="2"/> 
+						  <xsd:enumeration value="3"/> 
+					</restriction>
+				</simpleType>
+	  </element>
+	  <element minOccurs="1" name="CenterGenderGroup">
+	            <simpleType>
+					<restriction base="integer">
+						  <xsd:enumeration value="1"/>
+						  <xsd:enumeration value="2"/>
+						  <xsd:enumeration value="3"/>
+					</restriction>
+				</simpleType>
+	  </element> 
+        </all>
+    </complexType>
+    
+
+    <complexType name="CenterManagerInfo_Type">
+        <all>
+      <element minOccurs="1" name="IdNo">
+		
+			    <simpleType>
+                       <xsd:restriction base="xsd:string">
+                          <xsd:pattern value="[0-9]{10}"/>
+                       </xsd:restriction>
+                      </simpleType>
+         </element>
+	  
+      <element minOccurs="1" name="ManagerFullName" type="bons0:Name_Type"/>
+      <element minOccurs="1" name="IdCopy" type="bons0:File_Type1"/>
+      <element minOccurs="1" name="PreviousExperiences" type="bons0:File_Type13"/>
+	  <element minOccurs="1" name="EducationalQualifications" type="bons0:File_Type4"/>
+        </all>
+    </complexType>
+    
+
+	
+	<complexType name="Name_Type">
+        <all>
+      <element minOccurs="1" name="FirstName" type="string"/>
+      <element minOccurs="1" name="SecondName" type="string"/>
+      <element minOccurs="1" name="ThirdName" type="string"/>
+      <element minOccurs="1" name="FamilyName" type="string"/>
+        </all>
+    </complexType>
+	
+	<complexType name="File_Type1">
+        <all>
+        <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocType">
+      <simpleType>
+					<restriction base="integer">
+						  <xsd:enumeration value="1"/> 
+					</restriction>
+				</simpleType>
+	  </element>
+      <element minOccurs="1" name="URL" type="string"/> 
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type13">
+        <all>
+        <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocType">
+      <simpleType>
+					<restriction base="integer">
+						  <xsd:enumeration value="13"/> 
+					</restriction>
+				</simpleType>
+	  </element>
+      <element minOccurs="1" name="URL" type="string"/> 
+        </all>
+    </complexType>
+    
+    <complexType name="File_Type4">
+        <all>
+        <element minOccurs="1" name="FileId" type="string"/> 
+      <element minOccurs="1" name="DocType">
+      <simpleType>
+					<restriction base="integer">
+						  <xsd:enumeration value="4"/> 
+					</restriction>
+				</simpleType>
+	  </element>
+      <element minOccurs="1" name="URL" type="string"/> 
+        </all>
+    </complexType>
+	
+    	
+    
+    <complexType name="CreateTemporaryLicenseRs_BodyType">
+		<all>
+		 <element minOccurs="1" name="CenterOwnerName" type="string"/>
+		 <element minOccurs="0" name="IdNo" type="integer"/> 
+		 <element minOccurs="1" name="LicenseNo" type="integer"/>
+		 <element minOccurs="1" name="LicenseIssueDateH" type="string"/>
+		 <element minOccurs="1" name="LicenseExpDateH" type="string"/>
+		 <element minOccurs="1" name="IdExpDate" type="string"/> 
+		 <element minOccurs="1" name="CenterType" type="integer"/>
+		 <element minOccurs="0" name="CRNumber" type="integer"/>
+		 <element minOccurs="0" name="CRIssueDate" type="string"/>
+		 <element minOccurs="0" name="CRExpDate" type="string"/>
+		 <element minOccurs="0" name="CenterName" type="string"/> 	 
+		</all>
+    </complexType>
+    
+    
+</xsd:schema>

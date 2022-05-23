@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Taheel/CenterEstablishment/GetLicenseDetails/v1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/CenterEstablishment/GetLicenseDetails/v1.0" xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+    <xsd:import namespace="http://Takamol/Common/Types"  schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+ 
+    <xsd:element name="GetLicenseDetailsRq"  type="bons0:GetLicenseDetailsRq_Type"/>
+    <xsd:element name="GetLicenseDetailsRs" type="bons0:GetLicenseDetailsRs_Type"/>
+     
+    <complexType name="GetLicenseDetailsRq_Type">
+        <sequence> 
+            <xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/> 
+            <xsd:element name="Body" type="bons0:GetLicenseDetailsRq_BodyType"/>
+        </sequence>
+    </complexType>
+    
+    <complexType name="GetLicenseDetailsRs_Type"> 
+        <sequence> 
+            <xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/>
+            <xsd:element minOccurs="0" name="Body" type="bons0:GetLicenseDetailsRs_BodyType"/>
+        </sequence>
+    </complexType>
+
+ 
+
+    <complexType name="GetLicenseDetailsRq_BodyType">
+    <all>
+	     <element minOccurs="1" name="LicenseNo" type="integer"/>
+         <element minOccurs="1" name="LicenseType">
+		 <simpleType>
+					<restriction base="integer"> 
+						  <xsd:enumeration value="1"/>
+						  <xsd:enumeration value="2"/> 
+					</restriction>
+				</simpleType>
+	     </element>
+         <element minOccurs="1" name="CharacterType">
+		 <simpleType>
+					<restriction base="integer"> 
+						  <xsd:enumeration value="1"/>
+						  <xsd:enumeration value="2"/> 
+					</restriction>
+				</simpleType>
+	     </element>
+         <element minOccurs="0" name="OwnerId">  
+		   <simpleType>
+                       <xsd:restriction base="xsd:string">
+                          <xsd:pattern value="[0-9]{10}"/>
+                       </xsd:restriction>
+                      </simpleType>
+         </element>
+         <element minOccurs="0" name="DateOfBirthH" type="string"/>
+         <element minOccurs="0" name="CRNumber" type="integer"/> 
+         
+    </all>
+    </complexType>  
+
+    
+    <complexType name="GetLicenseDetailsRs_BodyType">
+		<all>
+		 <element minOccurs="1" name="CenterOwnerName" type="string"/>
+		 <element minOccurs="0" name="OwnerId" type="integer"/> 
+		 <element minOccurs="0" name="IdIssueDateH" type="string"/>
+		 <element minOccurs="0" name="IdIssuePlace" type="string"/>
+		 <element minOccurs="0" name="IdExpDate" type="string"/> 
+		 <element minOccurs="1" name="LicenseNo" type="string"/>
+		 <element minOccurs="1" name="LicenseIssueDateH" type="string"/>
+		 <element minOccurs="1" name="LicenseExpDateH" type="integer"/>
+		 <element minOccurs="1" name="CenterTypeCode" type="string"/>
+		 <element minOccurs="0" name="CRNumber" type="integer"/>
+		 <element minOccurs="0" name="CRIssueDate" type="string"/>
+		 <element minOccurs="0" name="CRExpDate" type="string"/>
+		 <element minOccurs="0" name="CenterAgeGroup" type="integer"/> 
+		 <element minOccurs="0" name="BneficiaryCategory" type="integer"/>
+		 <element minOccurs="1" name="CenterName" type="string"/> 	 
+		</all>
+    </complexType>
+    
+    
+</xsd:schema>

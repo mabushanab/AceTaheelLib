@@ -1,0 +1,70 @@
+ <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Taheel/CenterEstablishment/FinalLicenseWorkflowOperations/v1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/CenterEstablishment/FinalLicenseWorkflowOperations/v1.0" xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+    <xsd:import namespace="http://Takamol/Common/Types"  schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+ 
+    <xsd:element name="FinalLicenseWorkflowOperationsRq"  type="bons0:FinalLicenseWorkflowOperationsRq_Type"/>
+    <xsd:element name="FinalLicenseWorkflowOperationsRs" type="bons0:FinalLicenseWorkflowOperationsRs_Type"/>
+     
+    <complexType name="FinalLicenseWorkflowOperationsRq_Type">
+        <sequence>
+            <xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/>
+            <xsd:element name="Body" type="bons0:FinalLicenseWorkflowOperationsRq_BodyType"/>
+        </sequence>
+    </complexType>
+    
+    <complexType name="FinalLicenseWorkflowOperationsRs_Type"> 
+        <sequence>
+            <xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/>
+            <xsd:element minOccurs="0" name="Body" type="bons0:FinalLicenseWorkflowOperationsRs_BodyType"/>
+        </sequence>
+    </complexType>
+
+ 
+
+    <complexType name="FinalLicenseWorkflowOperationsRq_BodyType">
+    <all>
+	     <element minOccurs="1" name="RequestId" type="integer"/>
+         <element minOccurs="1" name="OperationType " >  
+		  <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "1"/>
+				 <enumeration value = "2"/>
+				 <enumeration value = "3"/>
+            </restriction>
+        </simpleType>
+       </element>
+         <element minOccurs="0" name="RequestComments" type="string"/>
+         <element minOccurs="0" name="IsApproved" >
+		 <simpleType>
+            <restriction base ="integer"> 
+				 <enumeration value = "1"/>
+				 <enumeration value = "2"/>
+				 <enumeration value = "0"/>
+            </restriction>
+        </simpleType>
+        </element>
+         
+    </all>
+    </complexType> 
+    	
+    
+    <complexType name="FinalLicenseWorkflowOperationsRs_BodyType">
+		<all>
+		 <element minOccurs="0" name="RequestStatus" type="integer"/>
+		 <element minOccurs="0" name="CenterOnwerName" type="string"/>
+		 <element minOccurs="0" name="IdNo" type="integer"/>
+		 <element minOccurs="0" name="CRNumber" type="string"/>
+		 <element minOccurs="0" name="CRIssueDateH" type="string"/>
+		 <element minOccurs="0" name="CRExpDate" type="string"/>
+		 <element minOccurs="0" name="CenterName" type="string"/>
+		 <element minOccurs="0" name="CenterTypeCode" type="string"/>
+		 <element minOccurs="0" name="CenterAgeGroup" type="integer"/>
+		 <element minOccurs="0" name="BneficiaryCategory" type="integer"/>
+		 <element minOccurs="0" name="LicenseNo" type="integer"/>
+		 <element minOccurs="0" name="LicenseIssueDateH" type="string"/>
+		 <element minOccurs="0" name="LicenseExpDateH" type="string"/>
+		 <element minOccurs="0" name="IdIssueDateH" type="string"/>
+		 <element minOccurs="0" name="IdIssuePlace" type="string"/> 
+		</all>
+    </complexType>    
+</xsd:schema>

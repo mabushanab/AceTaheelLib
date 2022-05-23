@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Taheel/UserManagemnet/TaheelCenterUserLogin/v1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://Taheel/UserManagemnet/TaheelCenterUserLogin/v1.0" xmlns:bons1="http://Takamol/Common/Types" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+	<xsd:import namespace="http://Takamol/Common/Types" schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/>
+
+  
+	<xsd:element name="TaheelCenterUserLoginRq" type="bons0:TaheelCenterUserLoginRq_Type"/>
+	<xsd:element name="TaheelCenterUserLoginRs"  type="bons0:TaheelCenterUserLoginRs_Type"/> 
+	
+	<complexType name="TaheelCenterUserLoginRq_Type">  
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/>
+			<xsd:element name="Body" type="bons0:TaheelCenterUserLoginRq_BodyType"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="TaheelCenterUserLoginRs_Type"> 
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/>
+			<xsd:element name="Body" type="bons0:TaheelCenterUserLoginRs_BodyType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="TaheelCenterUserLoginRq_BodyType">
+		<all>
+
+			<element minOccurs="0" name="IdNo" type="integer"/>
+			<element minOccurs="1" name="Password" type="string"/>
+			<element minOccurs="0" name="Email" type="string"/> 
+	
+		</all>  
+	</complexType>
+	
+    
+
+	<complexType name="TaheelCenterUserLoginRs_BodyType">
+	    <all>
+
+			<element type="string" name="BirthDateH" minOccurs="1" />
+			<element type="string" name="Email" minOccurs="1" />
+			<element type="string" name="Gender" minOccurs="1" />
+			<element type="string" name="MartialStatus" minOccurs="1" />
+			<element type="string" name="Mobile_Number" minOccurs="1" />
+			<element name="Name" minOccurs="1" type="bons0:Name_Type"/>
+			<element type="string" name="Occupation" minOccurs="1" />
+			<element type="string" name="Phone_Number" minOccurs="1" />
+			<element type="integer" name="Row_Id" minOccurs="1" />
+			<element type="string" name="Status" minOccurs="1" />
+			<element type="integer" name="User_Id" minOccurs="1" />
+			<element type="string" name="User_Name" minOccurs="1" /> 
+			<element name="User_Organizations" minOccurs="1" type = "bons0:User_Organizations_Type"/>
+				
+
+		</all>  
+	</complexType>
+
+       <complexType name = "Name_Type">
+			<sequence>
+				<element type="string" name="FamilyName" minOccurs="1" />
+				<element type="string" name="FatherName" minOccurs="1" />
+				<element type="string" name="FirstName" minOccurs="1" />
+				<element type="string" name="GrandName" minOccurs="1" />
+			</sequence>
+		</complexType>
+		
+	<complexType name="User_Organizations_Type"> 
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="1" name="User_Organizations_ListItem" type="bons0:User_Organizations_ListItem_Type"/>
+		</sequence>
+	</complexType>
+		
+
+
+      <complexType name ="User_Organizations_ListItem_Type"> 
+		<sequence>
+			<element type="integer" name="Entity_ID" minOccurs="1" />
+			<element type="string" name="User_Roles_Id" minOccurs="1" />
+			<element type="string" name="User_Type_Id" minOccurs="1" />
+		</sequence>
+	</complexType>
+</xsd:schema>

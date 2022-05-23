@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://Common/Momra/GetMoMRALicenseDetails/v1.0" xmlns="http://www.w3.org/2001/XMLSchema"
+ xmlns:bons0="http://Common/Momra/GetMoMRALicenseDetails/v1.0" xmlns:bons1="http://Takamol/Common/Types"
+  xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+	<xsd:import namespace="http://Takamol/Common/Types" schemaLocation="../common/types/ESB_common_types_v1.0.xsd"/> 
+
+ 
+	<xsd:element name="GetMoMRALicenseDetailsRq" type="bons0:GetMoMRALicenseDetailsRq_Type"/>
+	<xsd:element name="GetMoMRALicenseDetailsRs" type="bons0:GetMoMRALicenseDetailsRs_Type"/> 
+	
+	<complexType name="GetMoMRALicenseDetailsRq_Type"> 
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLRequestHeader_Type"/>
+			<xsd:element name="Body" type="bons0:GetMoMRALicenseDetailsRq_BodyType"/>
+		</sequence>
+	</complexType>
+	<complexType name="GetMoMRALicenseDetailsRs_Type"> 
+		<sequence>
+			<xsd:element name="Header" type="bons1:ESBXMLResponseHeader_Type"/>
+			<xsd:element name="Body" type="bons0:GetMoMRALicenseDetailsRs_BodyType"/>
+		</sequence>
+	</complexType>
+	<complexType name="GetMoMRALicenseDetailsRq_BodyType">
+		<all>
+			<element minOccurs="1" name="CRNumber" type="integer" />	
+		</all>  
+	</complexType>
+	
+	<complexType name="GetMoMRALicenseDetailsRs_BodyType">
+		<all>	
+					<element minOccurs="1" name="OwnerInfo" type="bons0:OwnerInfo_Type"/>	
+					<element minOccurs="1" name="LicenseInfo" type="bons0:LicenseInfo_Type"/>	
+		
+		</all>  
+	</complexType>
+	
+	<complexType name="OwnerInfo_Type">
+		<all>	
+					<element name="OwnerName" type="string"/>	
+					<element name="OwnerIdentifier" type="bons0:OwnerIdentifier_Type"/>	
+		
+		</all>  
+	</complexType>
+	<complexType name="OwnerIdentifier_Type">
+		<all>	
+					<element name="CRNumber" type="integer"/>	
+					<element name="CharityID" type="string"/>	
+					<element name="GovernmentalEntityID" type="string"/>	
+					<element name="GulfID" type="string"/>	
+					<element name="NationalID" type="string"/>	
+					<element name="SevenHundredNumber" type="string"/>	
+		
+		</all>  
+	</complexType>
+	
+	<complexType name="LicenseInfo_Type">
+		<all>	
+					<element name="UnifiedLicenseNumber" type="string"/>	
+					<element name="Amanah" type="bons0:CodeName_Type"/>	
+					<element name="BaladiaName" type="string"/>	
+					<element name="IssueDate" type="string"/>	
+					<element name="ExipryDate" type="string"/>	
+					<element minOccurs="1" name="LicenseStatus" type="string"/>	
+					<element minOccurs="1" name="ActivitiesStructure" type="bons0:ActivitiesStructure_Type"/>	
+					<element minOccurs="1" name="CommercialName" type="string"/>	
+					<element minOccurs="1" name="ShopArea" type="integer"/>	
+					<element minOccurs="1" name="DoorsCount" type="integer"/>	
+					<element minOccurs="1" name="ShopAddress" type="string"/>	
+					<element minOccurs="1" name="LocationCoordinates" type="bons0:Location_Type"/>	
+		</all>  
+	</complexType>
+	
+	<complexType name="CodeName_Type">
+		<all>	
+					<element minOccurs="1" name="Code" type="string"/>	
+					<element minOccurs="1" name="Name" type="string"/>			
+		</all>  
+	</complexType>
+
+	<complexType name="ActivitiesStructure_Type">
+		<all>	
+					<element minOccurs="1" name="ActivityISICCode" type="string"/>	
+					<element minOccurs="1" name="ActivityISICDescription" type="string"/>			
+					<element minOccurs="1" name="ActivityAmanahDescription" type="string"/>			
+					<element minOccurs="1" name="ActivityArea" type="integer"/>			
+					<element minOccurs="1" name="BoardsList" type="bons0:BoardsList_Type"/>			
+		</all>  
+	</complexType>
+
+	<complexType name="BoardsList_Type">
+		<all>	
+					<element minOccurs="1" name="BoardType" type="string"/>	
+					<element minOccurs="1" name="BoardArea" type="integer"/>	
+		</all>  
+	</complexType>
+	<complexType name="Location_Type">
+		<all>	
+					<element minOccurs="1" name="Longitude" type="string"/>	
+					<element minOccurs="1" name="Latitude" type="string"/>	
+		</all>  
+	</complexType>
+
+	
+</xsd:schema>
